@@ -15,3 +15,5 @@ steps:
 
 images:
   - europe-west2-docker.pkg.dev/delivery-493714/boutique-images/frontend:$SHORT_SHA
+options:
+  logging: CLOUD_LOGGING_ONLY
