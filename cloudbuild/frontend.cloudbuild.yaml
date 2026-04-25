@@ -1,0 +1,17 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -t
+      - europe-west2-docker.pkg.dev/delivery-493714/boutique-images/frontend:$SHORT_SHA
+      - -f
+      - app/upstream/microservices-demo/src/frontend/Dockerfile
+      - app/upstream/microservices-demo/src/frontend
+
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - europe-west2-docker.pkg.dev/delivery-493714/boutique-images/frontend:$SHORT_SHA
+
+images:
+  - europe-west2-docker.pkg.dev/delivery-493714/boutique-images/frontend:$SHORT_SHA
